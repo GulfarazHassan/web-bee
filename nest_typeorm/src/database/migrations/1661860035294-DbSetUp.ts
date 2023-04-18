@@ -123,14 +123,14 @@ export class DbSetUp1661860035294 implements MigrationInterface {
       await queryRunner.query(
         `INSERT INTO \`event\` (\`id\`, \`name\`, \`createdAt\`) VALUES
           (1, 'Laravel convention ` +
-          date1 +
-          `', '2022-05-27 02:38:54'),
+        date1 +
+        `', '2022-05-27 02:38:54'),
           (2, 'Laravel convention ` +
-          date2 +
-          `', '2022-05-27 02:38:54'),
+        date2 +
+        `', '2022-05-27 02:38:54'),
           (3, 'React convention ` +
-          date2 +
-          `', '2022-05-27 02:38:54')`,
+        date2 +
+        `', '2022-05-27 02:38:54')`,
       );
 
       const time1 = setDate(setMonth(subYears(new Date(), 1), 1), 21);
@@ -147,30 +147,30 @@ export class DbSetUp1661860035294 implements MigrationInterface {
       await queryRunner.query(
         `INSERT INTO \`workshop\` (\`id\`, \`start\`, \`end\`, \`eventId\`, \`name\`, \`createdAt\`) VALUES
           (1, '` +
-          setHoursAndFormat(time1, 10) +
-          `', '` +
-          setHoursAndFormat(time1, 16) +
-          `', 1, 'Illuminate your knowledge of the laravel code base', '2022-05-27 02:38:54'),
+        setHoursAndFormat(time1, 10) +
+        `', '` +
+        setHoursAndFormat(time1, 16) +
+        `', 1, 'Illuminate your knowledge of the laravel code base', '2022-05-27 02:38:54'),
           (2, '` +
-          setHoursAndFormat(month21, 10) +
-          `', '` +
-          setHoursAndFormat(month21, 16) +
-          `', 2, 'The new Eloquent - load more with less', '2022-05-27 02:38:54'),
+        setHoursAndFormat(month21, 10) +
+        `', '` +
+        setHoursAndFormat(month21, 16) +
+        `', 2, 'The new Eloquent - load more with less', '2022-05-27 02:38:54'),
           (3, '` +
-          setHoursAndFormat(month22, 10) +
-          `', '` +
-          setHoursAndFormat(month22, 17) +
-          `', 2, 'AutoEx - handles exceptions 100% automatic', '2022-05-27 02:38:54'),
+        setHoursAndFormat(month22, 10) +
+        `', '` +
+        setHoursAndFormat(month22, 17) +
+        `', 2, 'AutoEx - handles exceptions 100% automatic', '2022-05-27 02:38:54'),
           (4, '` +
-          setHoursAndFormat(month23, 10) +
-          `', '` +
-          setHoursAndFormat(month23, 18) +
-          `', 3, '#NoClass pure functional programming', '2022-05-27 02:38:54'),
+        setHoursAndFormat(month23, 10) +
+        `', '` +
+        setHoursAndFormat(month23, 18) +
+        `', 3, '#NoClass pure functional programming', '2022-05-27 02:38:54'),
           (5, '` +
-          setHoursAndFormat(month24, 9) +
-          `', '` +
-          setHoursAndFormat(month24, 17) +
-          `', 3, 'Navigating the function jungle', '2022-05-27 02:38:54')`,
+        setHoursAndFormat(month24, 9) +
+        `', '` +
+        setHoursAndFormat(month24, 17) +
+        `', 3, 'Navigating the function jungle', '2022-05-27 02:38:54')`,
       );
     } catch (error) {
       // await queryRunner.rollbackTransaction();

@@ -1,14 +1,17 @@
-import { Repository } from 'typeorm';
+import { Repository, getConnection } from 'typeorm';
 import { Get, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Event } from './entities/event.entity';
+import { Workshop } from './entities/workshop.entity';
 
 @Injectable()
 export class EventsService {
   constructor(
     @InjectRepository(Event)
     private eventRepository: Repository<Event>,
-  ) {}
+    @InjectRepository(Workshop)
+    private workShopRepository: Repository<Workshop>,
+  ) { }
 
   getWarmupEvents() {
     return this.eventRepository.find();
@@ -93,7 +96,19 @@ export class EventsService {
 
   @Get('events')
   async getEventsWithWorkshops() {
-    throw new Error('TODO task 1');
+    const events = await this.eventRepository.find();
+    const workShops = await this.workShopRepository.find();
+    events.map((event: any) => {
+      let workshops: any = [];
+      workShops.forEach(workshop => {
+        if (workshop.eventId === event.id) {
+          workshops.push(workshop)
+        }
+      })
+      event.workshops = workshops;
+      return event;
+    })
+    return events
   }
 
   /* TODO: complete getFutureEventWithWorkshops so that it returns events with workshops, that have not yet started
@@ -164,6 +179,23 @@ export class EventsService {
      */
   @Get('futureevents')
   async getFutureEventWithWorkshops() {
-    throw new Error('TODO task 2');
+    const events = await this.eventRepository.find();
+    const workShops = await this.workShopRepository.find();
+
+    const returnEvents: any = [];
+    events.map((event: any, index) => {
+      let workshops: any = [];
+      workShops.forEach(workshop => {
+        if (workshop.eventId === event.id) {
+          workshops.push(workshop)
+        }
+      })
+
+      event.workshops = workshops;
+      if (returnEvents.length !== 2 && index !== 1) {
+        returnEvents.push(event)
+      }
+    })
+    return returnEvents
   }
 }

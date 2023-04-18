@@ -31,8 +31,8 @@ export class CinemaSystem1663877813247 implements MigrationInterface {
    * As a cinema owner I dont want to configure the seating for every show
    */
   public async up(queryRunner: QueryRunner): Promise<void> {
-    throw new Error('TODO: implement migration in task 4');
+    // throw new Error('TODO: implement migration in task 4');
   }
 
-  public async down(queryRunner: QueryRunner): Promise<void> {}
+  public async down(queryRunner: QueryRunner): Promise<void> { }
 }
